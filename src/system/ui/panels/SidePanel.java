@@ -124,10 +124,10 @@ public abstract class SidePanel extends JPanel{
 
 			btn_orbits = new JRadioButton[orbits];
 			for(int o=orbits-1; o>=0; o--) {
-				final int orbit = o;
+				final int orbit = o + 1;
 				
 				btn_orbits[o] = new JRadioButton("Orbit " + (o+1));
-				btn_orbits[o].addActionListener(e -> onNextOrbit(orbit + 1));
+				btn_orbits[o].addActionListener(e -> onNextOrbit(orbit));
 				panel.add(btn_orbits[o]);
 				
 				group.add(btn_orbits[o]);

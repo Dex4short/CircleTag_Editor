@@ -21,7 +21,7 @@ public class CircleTagEditor extends JFrame{
 	private IDPanel id_panel;
 
 	public CircleTagEditor() {
-		setTitle("Window");
+		setTitle("CircleTag - Editor");
 		setLayout(new BorderLayout());
 		
 		headerPanel = new HeaderPanel() {

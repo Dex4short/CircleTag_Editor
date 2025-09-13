@@ -140,7 +140,7 @@ public abstract class PreviewPanel extends JPanel{
 		getRootPane().repaint();
 	}
 	public void zoom(float zoom) {
-		if(marker.getScale() <= 1f) {
+		if(marker.getScale() < 1f) {
 			Toolkit.getDefaultToolkit().beep();
 			marker.setScale(1f);
 			return;

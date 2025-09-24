@@ -52,14 +52,17 @@ public abstract class PreviewPanel extends JPanel{
 		
 		addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				e.translatePoint(-tx, -ty);
-				marker.forEachCircle(c -> {
-					if(c.getPoint().distance(e.getPoint()) < c.getRadius()) {
-						selected_mark = c;
-						onSelectMark(c);
+				selected_mark = null;
+				
+				for(CircleMark circleMark: marker.getCircleMarks()) {
+					if(circleMark.getPoint().distance(e.getPoint()) < circleMark.getRadius()) {
+						selected_mark = circleMark;
+						onSelectMark(circleMark);
 					}
-				});
+				}
+				
 				e.translatePoint(tx, ty);
 				getRootPane().repaint();
 			}
@@ -70,11 +73,14 @@ public abstract class PreviewPanel extends JPanel{
 			public void mouseMoved(MouseEvent e) {
 				e.translatePoint(-tx, -ty);
 				pointed_mark = null;
-				marker.forEachCircle(c -> {
-					if(c.getPoint().distance(e.getPoint()) < c.getRadius()) {
-						pointed_mark = c;
+				
+				for(CircleMark circleMark: marker.getCircleMarks()) {
+					if(circleMark.getPoint().distance(e.getPoint()) < circleMark.getRadius()) {
+						selected_mark = circleMark;
+						onSelectMark(circleMark);
 					}
-				});
+				}
+				
 				e.translatePoint(tx, ty);
 				getRootPane().repaint();
 			}
@@ -112,7 +118,7 @@ public abstract class PreviewPanel extends JPanel{
 	
 	//header calls
 	public void addCircleMark() {
-		CircleMark circle_mark = new CircleMark(1, CardinalDirection.E_, DiscreteSize.A, Polarity.HOLLOW);
+		CircleMark circle_mark = new CircleMark(1, CardinalDirection.E_, DiscreteSize.I, Polarity.HOLLOW);
 		marker.addCircleMark(circle_mark);
 		selected_mark = circle_mark;
 		getRootPane().repaint();

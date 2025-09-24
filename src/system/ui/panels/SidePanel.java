@@ -29,7 +29,7 @@ public abstract class SidePanel extends JPanel{
 		setBorder(BorderFactory.createLoweredBevelBorder());
 		
 		sizes_panel = new SizesPanel();
-		orbits_panel = new OrbitsPanel(circle_tag.getOrbits());
+		orbits_panel = new OrbitsPanel(CircleTag.ORBITS);
 		directions_panel = new DirectionsPanel();
 		polarity_panel = new PolarityPanel();
 		

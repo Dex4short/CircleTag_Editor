@@ -31,13 +31,13 @@ public class CircleTagEditorWindow extends JFrame{
 				preview_panel.addCircleMark();
 				side_panel.setEnabled(true);
 				side_panel.updateAtributes(preview_panel.getSelectedCircleMark());
-				id_panel.setID(preview_panel.getCircleTag().getMarkerId());
+				id_panel.setID(preview_panel.getCircleTag().getTagId());
 			}
 			@Override
 			public void onRemoveCircle() {
 				preview_panel.removeCircleMark();
 				side_panel.setEnabled(false);
-				id_panel.setID(preview_panel.getCircleTag().getMarkerId());
+				id_panel.setID(preview_panel.getCircleTag().getTagId());
 			}
 			@Override
 			public void onShowOrbits(boolean show) {
@@ -75,13 +75,13 @@ public class CircleTagEditorWindow extends JFrame{
 			@Override
 			public void onNextSize(DiscreteSize size) {
 				preview_panel.getSelectedCircleMark().setDiscreteSize(size);
-				id_panel.setID(preview_panel.getCircleTag().getMarkerId());
+				id_panel.setID(preview_panel.getCircleTag().getTagId());
 				getRootPane().repaint();
 			}
 			@Override
 			public void onNextOrbit(int orbit) {
 				preview_panel.getSelectedCircleMark().setOrbit(orbit);
-				id_panel.setID(preview_panel.getCircleTag().getMarkerId());
+				id_panel.setID(preview_panel.getCircleTag().getTagId());
 				getRootPane().repaint();
 			}
 			@Override
@@ -93,13 +93,13 @@ public class CircleTagEditorWindow extends JFrame{
 				else {
 					preview_panel.getSelectedCircleMark().setDirection(direction);
 				}
-				id_panel.setID(preview_panel.getCircleTag().getMarkerId());
+				id_panel.setID(preview_panel.getCircleTag().getTagId());
 				getRootPane().repaint();
 			}
 			@Override
 			public void onNextPolarity(Polarity polarity) {
 				preview_panel.getSelectedCircleMark().setPolarity(polarity);
-				id_panel.setID(preview_panel.getCircleTag().getMarkerId());
+				id_panel.setID(preview_panel.getCircleTag().getTagId());
 				getRootPane().repaint();
 			}
 		};
